@@ -4,7 +4,8 @@ COPY ldap-server-mock-*.json /srv/
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
-RUN su -c "npm install -g ldap-server-mock" node
+RUN su -c "npm install -g ldap-server-mock" node && \
+    su -c "rm -rf /home/node/.npm" node
 
 EXPOSE 3004
 
